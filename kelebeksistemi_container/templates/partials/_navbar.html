@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item {% if '/' == request.path %} active {% endif %}">
+          <a class="nav-link" href="/">Ana Sayfa</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if '/announcements' in request.path %} active {% endif %}"
+            href="/announcements"
+            >Duyurular</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if '/about' in request.path %} active {% endif %}"
+            href="/about"
+            >Hakkımızda</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if '/contacts' in request.path %} active {% endif %}"
+            href="/contacts"
+            >İletişim</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if '/purchases' in request.path %} active {% endif %}"
+            href="/purchases"
+            >Satın al</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a
+            class="navbar nav-link"
+            href="{% if user.username == 'admin' %}/admin{% else %}/accounts/dashboard{% endif %}"
+            >{{user.username}}</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="navbar nav-link" href="/accounts/logout">Çıkış yap</a>
+        </li>
+        {% else %}
+        <li
+          class="nav-item {% if '/accounts/login' in request.path %} active {% endif %}"
+        >
+          <a class="nav-link" href="/accounts/login">Giriş yap</a>
+        </li>
+        <li
+          class="nav-item {% if '/accounts/register' in request.path %} active {% endif %}"
+        >
+          <a class="nav-link" href="/accounts/register">Kaydol</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

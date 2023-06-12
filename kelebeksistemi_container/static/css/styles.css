@@ -1,0 +1,28 @@
+.login-form {
+  padding-right: 2%;
+}
+
+.custom-content {
+  padding: 2%;
+}
+
+.custom-form {
+  padding-left: 30%;
+  padding-right: 30%;
+  display: grid;
+}
+
+.text-logo{
+  font-size: large;
+}
+
+.custom-title{
+  margin-bottom: 2%;
+}
+
+.navbar-btn:hover {
+  border: solid 1px gray;
+  background-color: aqua;
+  color: white;
+  visibility: hidden;
+}
