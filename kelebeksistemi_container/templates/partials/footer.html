@@ -1,92 +1,17 @@
 {% load static %}
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 col-md-6">
-        <a href="#"
-          ><img src="{% static 'images/footer_logo.png' %}" alt="#"
-        /></a>
-        <ul class="contact_information">
-          <li>
-            <span
-              ><img
-                src="{% static 'images/location_icon.png' %}"
-                alt="#" /></span
-            ><span class="text_cont">London 145<br />United Kingdom</span>
-          </li>
-          <li>
-            <span
-              ><img src="{% static 'images/phone_icon.png' %}" alt="#" /></span
-            ><span class="text_cont">987 654 3210<br />987 654 3210</span>
-          </li>
-          <li>
-            <span
-              ><img src="{% static 'images/mail_icon.png' %}" alt="#" /></span
-            ><span class="text_cont"
-              >demo@gmail.com<br />support@gmail.com</span
-            >
-          </li>
-        </ul>
-        <ul class="social_icon">
-          <li>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-lg-2 col-md-6">
-        <div class="footer_links">
-          <h3>Quick link</h3>
-          <ul>
-            <li>
-              <a href="#"
-                ><i class="fa fa-angle-right" aria-hidden="true"></i> Home</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa fa-angle-right" aria-hidden="true"></i>
-                Features</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa fa-angle-right" aria-hidden="true"></i> Evens</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa fa-angle-right" aria-hidden="true"></i>
-                Markrting</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa fa-angle-right" aria-hidden="true"></i> Blog</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa fa-angle-right" aria-hidden="true"></i>
-                Testimonial</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa fa-angle-right" aria-hidden="true"></i> Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+  <div class="row">
+    <div class="col-12 col-md">
+      <img class="mb-2" src="{% static '/images/favicon.ico' %}" alt="" width="48" height="48">
+      <small class="d-block mb-3 text-muted">© 2023</small>
+    </div>
+    <div class="col-12 col-md text-right">
+      <h5>Hakkımızda</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="/about/developers">Ekip</a></li>
+        <li><a class="text-muted" href="/about/contact">İletişim</a></li>
+        <li><a class="text-muted" href="/about/privacy-terms">Gizlilik & Şartlar</a></li>
+      </ul>
     </div>
   </div>
 </footer>

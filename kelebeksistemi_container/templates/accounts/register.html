@@ -1,0 +1,65 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+
+{% block content %} 
+  {% if messages %} 
+    {% for message in messages %}
+      <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+    {% endfor %} 
+{% endif %}
+
+<form class="custom-form" method="POST">
+  {% csrf_token %}
+  <div class="text-center mb-4">
+    <img
+      class="mb-4 custom-logo"
+      src="{% static 'images/logo.png' %}"
+      alt=""
+      width="72"
+      height="72"
+    />
+    <h1 class="h3 mb-3 font-weight-normal">Kelebek Sistemi</h1>
+    <p>Lütfen kaydolun</p>
+  </div>
+
+  <div class="form-floating">
+    {{ form.first_name }}
+    <label for="inputField">Ad</label>
+  </div>
+  <br>
+  <div class="form-floating">
+    {{ form.last_name }}
+    <label for="inputField">Soyad</label>
+  </div>
+  <br>
+
+  <div class="form-floating">
+    {{ form.username }}
+    <label for="inputField">Kullanıcı adı</label>
+  </div>
+  <br>
+  <div class="form-floating">
+    {{ form.email }}
+    <label for="inputField">E-Posta</label>
+  </div>
+  <br>
+
+  <div class="form-floating">
+    {{ form.password1 }}
+    <label for="inputField">Parola</label>
+  </div>
+  <br>
+  <div class="form-floating">
+    {{ form.password2 }}
+    <label for="inputField">Parola onay</label>
+  </div>
+  <br>
+
+  <span class="text-center"> Hesabın var mı? <a href="/accounts/login">Giriş yap!</a> </span>
+  <br /><br />
+  <button class="btn btn-lg btn-primary btn-block" type="submit">
+    Kaydol
+  </button>
+  <p class="mt-5 mb-3 text-muted text-center">© 2023</p>
+</form>
+{% endblock %}

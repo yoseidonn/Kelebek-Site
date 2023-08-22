@@ -1,0 +1,118 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block title %}Gizlilik ve Şartlar - Kelebek Sistemi{% endblock %} 
+
+{% block content %}
+
+{% if messages %} 
+   {% for message in messages %}
+      <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+   {% endfor %}
+{% endif %}
+
+<div class="section-padding"></div>
+<div class="container">
+   <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Kullanım ve Güvenlik Kuralları
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ol>
+               <li>Güvenliğiniz için herhangi bir üçüncü tarafla hiçbir hesap bilginizi paylaşmayınız.</li>
+               <li>Lisans anahtarları tek bir cihazla sınırlıdır. Dolayısıyla satın aldığınız lisans anahtarlarını başkalarıyla paylaşmayın. Lisans anahtarı aktif edildiği anda başka bir cihazda kullanılamaz duruma gelecektir.</li>
+               <li>Geliştirici değilseniz veya bilginiz yoksa uygulamanın dosyalarını karıştırmayın. Veri kaybına yol açabilir.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            İçerik Kullanımı
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ol>
+               <li>Site’nin içeriğinde yer alan bütün yazıların, 
+                  grafiklerin, fotoğrafların, videoların, animasyonların, 
+                  seslerin, yazılım kodlarının her hakkı saklıdır. 
+                  Aksi belirtilmedikçe ticari ya da kişisel amaçlarla izinsiz ve kaynak göstermeden kullanılamaz.
+                  Bu Site’de yer alan herhangi bir unsuru diğer bir mecrada veya başka bir internet sitesinde 
+                  yahut uygulamada yayınlamak veya tarafımızın izni olmadan link vermek yasaktır.</li>
+               <li>Site’deki sayfaların tasarımında ve veri tabanı oluşturulmasında kullanılan 
+                  ve her hakkı Şirketimize ait olan yazılımın kopyalanması veya kullanılması kesinlikle yasaktır.</li>
+               <li>Tarafımız her türlü geri bildirim ve eleştiriye açıktır. 
+                  Site’ye iletilen tüm bu geri bildirimler tarafımızın mülkiyetinde olup, 
+                  pazarlama amacıyla anonimleştirilerek kullanılabilir.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Sorumluluklar
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ol>
+               <li>Ziyaretçi ve Üye, Site’den kopyalanmış veya yazıcı ile yazdırılmış hiçbir materyal üzerinden Telif Hakkı, 
+                  Ticari Marka ve her türlü Fikir ve Sanat Eserleri Kanunu kapsamı notlarını silemez veya çıkartamaz.</li>
+               <li>Aynı zamanda Site’de ziyaretçilere bilgi sağlamak ve kolaylık sağlamak amacı ile 
+                  yer alan linkler (farklı internet sitelerine yönlendiren bağlantılar) ile ilgili riskler Ziyaretçi’ye/Üye’ye aittir.</li>
+               <li>Site’nin belirli yerlerinde bölüme özgü farklı kurallar ve yükümlülükler belirtilebilir. 
+                  Bu bölümleri kullanan kişi ve kuruluşlar peşinen ilgili kuralları kabul etmiş sayılır. </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+         <h2 class="accordion-header">
+           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+             Haklarımız ve Yükümlülüklerimiz
+           </button>
+         </h2>
+         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+           <div class="accordion-body">
+            <ol>
+               <li>Tarafımız, Ziyaretçi’nin/Üye’nin Politika’ya konu hizmetlerden, 
+                  teknik arızalar dışında, yararlandırılacağını, Ziyaretçi’nin/Üye’nin paylaşıma açtığı kişisel bilgileri dışındaki bilgileri, 
+                  "Gizlilik ve Kişisel Verilerin Korunması" düzenlemelerinde ve aydınlatma bildirimlerinde yer alan hususlar haricinde 
+                  hiçbir şekilde üçüncü kişi ya da kuruluşlarla paylaşılmayacağını kabul ve taahhüt eder. 
+                  Ziyaretçi’nin/Üye’nin Site’nin çalışmasına engel olacak herhangi bir elektronik sabotaj, 
+                  kazançlara müdahale amaçlı girişimler ve/veya saldırıya neden olduğunun tespit edilmesi veya resmi makamlardan, 
+                  ziyaretçiye/üyeye yönelik suç duyurusu ya da resmi soruşturma talebi gelmesi halinde, 
+                  tarafımız ilgili ziyaretçinin/üyenin kimlik bilgilerini araştırma ve açıklama hakkına sahiptir.</li>
+            </ol>
+           </div>
+         </div>
+       </div>
+       <div class="accordion-item">
+         <h2 class="accordion-header">
+           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+             Gizlilik Prensiplerimiz
+           </button>
+         </h2>
+         <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+           <div class="accordion-body">
+            <ol>
+               <li>Güvenliğiniz bizler için önemli. Dolayısıyla tarafınızdan veri toplanıp toplanmadığını öğrenyi,
+                  toplanıyorsa bu verilerin nasıl kullanıldığını öğrenmeyi, 
+                  hangi üçüncü taraflarla paylaşıldığını öğrenmeyi talep edebilirsiniz.</li>
+               <li>Uygulamamız verilerinizi yerel veri tabanlarında tutar ve bu verilerin sunucularımızla bir bağı yoktur. Sunucularımız sadece lisanslarınız kontrol etme görevini yerine getirir.
+                  Söz konusu sunucu-istemci iletişim protokollerine <a href="/program/introduction">Tanıtım</a> başlığından ulaşabilirsiniz.
+               </li>
+            </ol>
+           </div>
+         </div>
+       </div>
+    </div>
+</div>
+
+{% endblock %}

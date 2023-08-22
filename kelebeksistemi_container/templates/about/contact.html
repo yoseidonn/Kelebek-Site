@@ -1,0 +1,51 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+{% block title %}İletişim - Kelebek Sistemi{% endblock %} 
+
+{% block content %}
+
+{% if messages %} 
+  {% for message in messages %}
+    <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+  {% endfor %} 
+{% endif %}
+
+<form class="custom-form" method="POST">
+  {% csrf_token %}
+  <div class="text-center mb-4">
+    <img
+      class="mb-4 custom-logo"
+      src="{% static 'images/logo.png' %}"
+      alt="Logo"
+      width="72"
+      height="72"
+    />
+    <h1 class="h3 mb-3 font-weight-normal">İletişim</h1>
+    <p>Sormaktan çekinme.</p>
+  </div>
+
+  <div class="form-floating">
+    {{ form.name }}
+    <label for="inputField">Adınız</label>
+  </div>
+  <br />
+  <div class="form-floating">
+    {{ form.email }}
+    <label for="inputField">E-Posta adresiniz</label>
+  </div>
+  <br />
+  <div class="form-floating">
+    {{ form.title }}
+    <label for="inputField">Başlık</label>
+  </div>
+  <br />
+  <div class="form-floating">
+    {{ form.text }}
+    <label for="inputField">Mesaj</label>
+  </div>
+  <br />
+  <button class="btn btn-lg btn-primary btn-block" type="submit">
+    Gönder
+  </button>
+  <p class="mt-5 mb-3 text-muted text-center">© 2023</p>
+{% endblock %}

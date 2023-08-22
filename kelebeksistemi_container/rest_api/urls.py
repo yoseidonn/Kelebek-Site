@@ -2,8 +2,9 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from .views import ValidateView, test_view
 
 urlpatterns = [
-    path('test/', views.test),
+    path('', test_view),
+    path('validate/<str:dsn>/<str:key>/', ValidateView.as_view()),
 ]

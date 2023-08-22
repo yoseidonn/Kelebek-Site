@@ -1,0 +1,10 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+
+{% block content %}
+
+{% if messages %} {% for message in messages %}
+      <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+      {% endfor %} {% endif %}
+      
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+
+
+{% block content %} 
+
+  {% if messages %} 
+    {% for message in messages %}
+      <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+    {% endfor %} 
+  {% endif %}
+
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">İndirmeler</h1>
+  </div>
+
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <div clas
+    s="feature col">
+
+      <h3 class="fs-2 text-body-emphasis">1. Kurulum dosyalarını indirin</h3>
+      <p>Kullandığınız işletim sisteminize uygun kurulum dosyalarını indirin; Windows için tek tıkla kurulum sihirbazları, Linux dağıtımları ve Mac için kurulum scriptleri mevcut. Size uygun olanını indirerek kuruluma başlayabilirsiniz.</p>
+      
+      <a href="windows" class="icon-link">
+        Windows için
+        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+      </a>
+      <a href="linux" class="icon-link">
+        Linux için
+        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+      </a>
+      <a href="mac" class="icon-link">
+        Mac için
+        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+      </a>
+
+    </div>
+
+    <div class="feature col">
+      <h3 class="fs-2 text-body-emphasis">2. Kurulum yönergelerini takip edin</h3>
+      <p>İndirme sayfasında bahsedildiği şekilde kurulum dosyasını çalıştırın ve kurulumu tamamlayın.</p>
+
+    </div>
+    
+    <div class="feature col">
+
+      <h3 class="fs-2 text-body-emphasis">3. Lisans anahtarınızı aktifleştirin</h3>
+      <p>Eğer satın aldıysanız size gönderilen lisans anahtarını uygulama açıldığında karşınızda gelen pencereye girin ve lisansınızı aktifleştirin. Artık kullanıma hazır!</p>
+      <p><small class="text-muted">Not: Eğer bir lisansınız yoksa sınırlamalar kapsamında hala uygulamayı kullanmaya devam edebilirsiniz.<p></small>
+
+      <a href="/program/fees" class="icon-link">
+        Lisans anahtarı al
+        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+      </a>
+    </div>
+  </div>
+
+{% endblock %}

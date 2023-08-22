@@ -1,0 +1,3 @@
+Sevgili {{ user.first_name }} {{ user.last_name }},
+
+Bu bağlantıya tıklayarak e-postanızı doğrulayabilirsiniz: {{ protocol }}://{{ domain }}{% url 'verify_email' uid=uid token=token %}
