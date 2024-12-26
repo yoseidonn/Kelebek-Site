@@ -2,7 +2,7 @@
 ## Description
 **Kelebek Site** is a **dynamic marketing website** for **the Kelebek App**, designed to promote the app, provide essential information about its features, and offer an easy-to-use interface for users and developers. In addition to the marketing content, Kelebek also serves as a platform to interact with the app's API, offering functionality for managing and accessing user data, project information, and more.
 
-## The admin panel of the Kelebek Site allows administrators to dynamically create and manage the following elements:
+**The admin panel of the Kelebek Site allows administrators to dynamically create and manage the following elements:**
 
 **Headings:** Customize section titles on the site
 **Slides:** Manage image or content sliders for showcasing features or announcements
@@ -12,11 +12,15 @@ These elements are dynamically rendered on the frontend, ensuring that the site 
 
 The **Kelebek Site** acts as *both a marketing platform and a gateway to the Kelebek App's license verification backend*, allowing users to explore the app's features while developers can interact with the API for app-related operations.
 
+***
+
 ## Requirements
 Before getting started, ensure you have the following installed:
 
 1. Python 3.x
 2. PostgreSQL (for database management but it's optional)
+
+***
 
 ## Installation
 To set up the project on your local machine, follow these steps:
@@ -27,6 +31,7 @@ To set up the project on your local machine, follow these steps:
 git clone <repository_url>
 cd kelebek-site
 ```
+***
 
 ### Create and activate a virtual environment:
 ``` 
@@ -34,28 +39,33 @@ cd kelebek-site
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
+***
 
 ### Install the required dependencies:
 ```
 # bash
-Kodu kopyala
 pip install -r requirements.txt
 ```
+***
 
 ### Apply database migrations:
 ```
-python manage.py migrate
 # bash
+python manage.py migrate
 ```
+***
 
 ### Create a superuser to access the admin panel:
 ```
 # bash
 python manage.py createsuperuser
 ```
+***
 
 ### Set up your environment variables (OPTIONAL):
 Create a .env file in the root directory and configure your database credentials and any other required environment variables *if you want to switch to PostgreSQL or use email services.*
+
+**Locate the .env alongside the venv/ and kelebeksistemi_container/**
 
 Example .env file:
 
@@ -73,6 +83,7 @@ MAIL={
     "HOST": "smtp.gmail.com", 
     "BACKEND": "django.core.mail.backends.smtp.EmailBackend"}```
 ``` 
+***
 
 ### Run the development server:
 ```
