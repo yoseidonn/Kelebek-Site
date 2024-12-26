@@ -1,0 +1,128 @@
+{% extends "partials/base.html" %} 
+{% load static %}
+{% block title %}Profil - Kelebek Sistemi{% endblock %} 
+
+{% block content %}
+
+{% if messages %} 
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+{% endfor %} 
+{% endif %}
+
+<div class="section-padding"></div>
+
+<div class="container-fluid">
+    <!-- Content here -->
+    <div class="row">
+        <!--Profil ön izleme-->
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    {% if user.profile_photo %}
+                        <img src="{{ user.profile_photo.url }}" alt="Avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                    {% else %}
+                        <img src="{% static 'images/logo.png' %}" alt="Avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                    {% endif %}
+                    <h5 class="my-3">{{user.first_name}} {{user.last_name}}</h5>
+                    <h6 class="my-0">Rol: {% if user.role == "Developer" %}Geliştirici{% else %}Kullanıcı{% endif %}</h6>
+                    <hr>
+                    {% if user.bio %}
+                        <p class="text-muted text-center"> {{user.bio}}</p>
+                    {% else %}
+                        <p class="text-muted text-center" style="text-decoration: underline;"> Biyografi bulunamadı </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-lg-8">
+            <!--Kişisel bilgiler-->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3 font-italic">Adı</div>
+                        <div class="col-sm-6">{{user.first_name}}</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3 font-italic">Soyadı</div>
+                        <div class="col-sm-6">{{user.last_name}}</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3 font-italic">Kullanıcı adı</div>
+                        <div class="col-sm-6">{{user.username}}</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3 font-italic">E-Posta</div>
+                        <div class="col-sm-6">{{user.email}}</div>
+                        <div class="col-sm-2 text-right">
+                            {% if user.is_email_verified == 'Nonverified' %}
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <button class="btn btn-secondary" type="submit" name="verify_email"> Onayla </button>
+                                </form>
+                            {% else %}
+                                <div class="text text-success">
+                                    <strong>Onaylanmış</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Satın alımlar-->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="accordion">
+                        {% for purchase, license_key in purchases %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Satın alım #{{ forloop.counter }}
+                                </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-sm-2">Tarih</div>
+                                            <div class="col-sm-7">{{ purchase.purchase_date }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">Tutar</div>
+                                            <div class="col-sm-7">{{ purchase.amount }} ₺</div>
+                                        </div>
+                                            
+                                        <hr>
+                                        {% if license_key %}
+                                            <div class="row">
+                                                <div class="col-sm-2">Tip</div>
+                                                <div class="col-sm-7">{% if license_key.key_type == 'PRO' %} Profesyonel {% elif license_key.key_type == 'STD' %} Standart {% endif %} </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">Anahtar</div>
+                                                <div class="col-sm-7">{{ license_key.key }}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">Bitiş tarihi</div>
+                                                <div class="col-sm-7">{{ license_key.end_date }}</div>
+                                                </div>
+                                        {% else %}
+                                            Lisans anahtarı bulunamadı. Lütfen sayfayı yenileyin ya da bize ulaşın. Telaşa gerek yok, biz sizinleyiz!
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <h4 class="accordion-header">Satın alım bulunamadı.{{ any_puchases }}</h4>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

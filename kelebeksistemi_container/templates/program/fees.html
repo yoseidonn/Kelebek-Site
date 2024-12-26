@@ -1,0 +1,79 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+
+{% block content %}
+
+{% if messages %} 
+      {% for message in messages %}
+            <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+      {% endfor %} 
+{% endif %}
+      
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Ücretler</h1>
+      <p class="lead"></p>
+    </div>
+
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Ücretsiz</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₺0 <small class="text-muted">/ ay</small></h1>
+            <br>
+            <hr>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Cihaz sınırı yok.</li>
+              <li>Süre yok.</li>
+              <li>Öğrenciler elle tek tek kaydedilir.</li>
+              <li>Salon ve öğrenci listeleri çıkartılabilir.</li>
+              <li>Çıktılarda ek bilgiler bulunmaz.</li>
+              <li>E-Posta desteği.</li>
+            </ul>
+            <a href="/program/downloads" class="btn btn-lg btn-block btn-outline-primary">Şimdi edinin</a>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Standart</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₺129.99<small class="text-muted"> / 6 ay</small></h1>
+            <div class="text-capitalize text-opacity-75">KDV Dahil değildir!</div>
+            <hr>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>1 cihaz için geçerlidir.</li>
+              <li>6 ay geçerlidir.</li>
+              <li>Öğrenciler excel dosyasından kaydedilir.</li>
+              <li>Salon ve öğrenci listeleri çıkartılabilir.</li>
+              <li>Çıktılarda okul bilgileri bulunur.</li>
+              <li>E-Posta desteği.</li>
+            </ul>
+            <a href="http://pay.tpayment.co/link/649b3160c038338cdb61fd99" target="_blank" class="btn btn-lg btn-block btn-primary">Şimdi edinin</a>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Profesyonel</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₺180<small class="text-muted"> / 1 yıl</small></h1>
+            <div class="text-capitalize text-opacity-75">KDV Dahil değildir!</div>
+            <hr>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>2 cihaz için geçerlidir.</li>
+                  <li>1 yıl geçerlidir.</li>
+                  <li>Öğrenciler excel dosyasından kaydedilir.</li>
+                  <li>Tüm yazdırma işlemleri yapılabilir.</li>
+                  <li>Çıktılarda okul bilgileri ve logosu bulunur.</li>
+                  <li>E-Posta desteği.</li>
+            </ul>
+            <a href="http://pay.tpayment.co/link/649b3180c038338cdb61fe9d" target="_blank" class="btn btn-lg btn-block btn-primary">Şimdi edinin</a>
+          </div>
+        </div>
+      </div>
+      
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block title %}Geliştiriciler - Kelebek Sistemi{% endblock %} 
+
+{% block content %}
+
+{% if messages %} 
+   {% for message in messages %}
+      <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+   {% endfor %}
+{% endif %}
+
+<div class="section-padding"></div>
+
+<div class="container">
+   {% for index, user in users %}
+      <div class="row">
+         <div class="col">
+            <div class="card mb-4">
+               <div class="card-body text-center">
+                  <img src="{{user.profile_photo.url}}" alt="Avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                  <h5 class="my-3">{{user.first_name}} {{user.last_name}}</h5>
+                  <h6 class="my-0">Rol: {% if user.role == "Developer" %}Geliştirici{% else %}Kullanıcı{% endif %}</h6>
+                  <hr>
+                  <p class="text-muted text-center"> {{ user.bio }}</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   {% endfor %}
+</div>
+
+{% endblock %}

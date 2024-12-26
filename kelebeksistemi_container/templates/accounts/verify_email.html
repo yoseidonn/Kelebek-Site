@@ -1,0 +1,22 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+
+{% block content %}
+
+<div class="container-fluid">
+    <br><br>
+    <h2 class="text-center">Yalnızca bir adım kaldı!</h2>
+    <br>
+    <h6 class="text-center">
+        E-Postanı doğrulamak için aşağıdaki butona basman yeterli.
+    </h6>
+    <br>
+    <div class="container" style="width: 50%;">
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-lg btn-outline-success btn-block" type="submit">Doğrula</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

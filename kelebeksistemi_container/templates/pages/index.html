@@ -1,0 +1,111 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+{% block title %}Ana Sayfa - Kelebek Sistemi{% endblock %} 
+
+{% block content %} 
+
+{% if messages %} 
+  {% for message in messages %}
+    <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+  {% endfor %}
+{% endif %} 
+
+{% include 'partials/header.html' %}
+
+<main role="main">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-inner">
+
+      {% for index, slide in slides2 %}
+        <div class="carousel-item text-center {% if index == 0 %} active {% endif %}" data-bs-interval="100">
+          <img src="{{ slide.image.url }}" style="object-fit: cover; height: 520px;" alt="Image"/>
+          <div class="carousel-caption d-none d-md-block">
+            <h4 style="-webkit-text-stroke-width: 1px; -webkit-text-stroke-color: white;"> <strong> {{ slide.title }} </strong> </h5>
+            <p style="-webkit-text-stroke-width: 1px; -webkit-text-stroke-color: white;">{{slide.content}}</p>
+          </div>
+        </div>
+      {% endfor %}
+      
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  <!-- Marketing messaging and featurettes
+                  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <hr class="featurette-divider" />
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row justify-content-center">
+      {% for heading in headings %}
+      <div class="col-lg-4">
+        <img
+          class="rounded-circle"
+          src="{{ heading.image.url }}"
+          alt="Görsel"
+          width="140"
+          height="140"
+        />
+        <h2>{{ heading.title }}</h2>
+        <p>{{ heading.content }}</p>
+        <p>
+          <a class="btn btn-secondary" href="#" role="button">Detaylar »</a>
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- /.row -->
+
+    <!-- START THE FEATURETTES -->
+    {% for feature in features %} {% if feature.side == "RIGHT" %}
+    <hr class="featurette-divider" />
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">
+          {{ feature.title }}
+          <span class="text-muted">{{ feature.side_title }}</span>
+        </h2>
+        <p class="lead">{{ feature.content }}</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img
+          class="featurette-image img-fluid mx-auto"
+          alt="500x500"
+          style="object-fit: cover; height: 500px"
+          src="{{ feature.image.url }}"
+          data-holder-rendered="true"
+        />
+      </div>
+    </div>
+    {% else %}
+    <hr class="featurette-divider" />
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">
+          {{ feature.title }}
+          <span class="text-muted">{{feature.side_title}}</span>
+        </h2>
+        <p class="lead">{{ feature.content }}</p>
+      </div>
+      <div class="col-md-5">
+        <img
+          class="featurette-image img-fluid mx-auto"
+          alt="500x500"
+          style="width: 500px; height: 500px"
+          src="{{ feature.image.url }}"
+          data-holder-rendered="true"
+        />
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+    <!-- /END THE FEATURETTES -->
+  </div>
+
+  {% endblock %}
+</main>

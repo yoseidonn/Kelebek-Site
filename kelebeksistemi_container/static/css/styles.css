@@ -1,0 +1,44 @@
+.custom-logo {
+  border: transparent;
+  border-radius: 15px;
+}
+
+.custom-form{
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.selected {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.section-padding{
+  padding: 2%;
+}
+
+.profile-container {
+  display: inline-block;
+  position: relative;
+}
+
+/* Styles for the text button */
+.upload-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color and opacity as per your preference */
+  color: #fff; /* Adjust the text color as per your preference */
+  text-align: center;
+  padding: 8px;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.2s ease;
+}
+
+/* Show the text button on hover */
+.profile-container:hover .upload-btn {
+  opacity: 1;
+}

@@ -1,0 +1,41 @@
+{% extends "partials/base.html" %} 
+{% load static %}
+{% block title %}Duyurular - Kelebek Sistemi{% endblock %} 
+
+{% block content %}
+
+{% if messages %} 
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+{% endfor %} 
+{% endif %}
+
+{% if announces %}
+  {% for announce in announces %}
+    <div class="section-padding"></div>
+
+      <div class="card">
+        <img src="{{announce.image.url}}" class="card-img-top" alt="Image" style="object-fit: cover; height: 360px;">
+        <div class="card-body">
+          <strong><h5 class="card-title">{{ announce.title }}</h5> <span class="date">{{ announce.date }}</span></strong>
+          <p class="card-text">{{ announce.content |  truncatechars:100 }}</p>
+          <a href="{{ announce.id }}" class="btn btn-primary">İncele</a>
+        </div>
+      </div>
+  {% endfor %}
+
+{% else %}
+  <div class="section-padding"></div>
+
+    <div class="card">
+      <img src="" class="card-img-top" alt="...">
+
+      <div class="card-body">
+        <h5 class="card-title">Opps...</h5>
+        <p class="card-text">Henüz duyuru yapılmamış.</p>
+      </div>
+    </div>
+{% endif %}
+
+<div class="section-padding"></div>
+{% endblock %}

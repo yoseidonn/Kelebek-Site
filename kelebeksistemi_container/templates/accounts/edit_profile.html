@@ -1,0 +1,46 @@
+{% extends "partials/base.html" %} 
+{% load static %} 
+
+{% block content %} 
+    {% if messages %} 
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}} custom-title">{{message}}</div>
+        {% endfor %} 
+    {% endif %}
+
+<form class="custom-form" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="text-center mb-4">
+    <div class="profile-container">
+      {% if user.profile_photo %}
+        <img src="{{user.profile_photo.url}}" alt="Avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+      {% else %}
+        <img src="{% static 'images/logo.png' %}" alt="Avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+      {% endif %}
+      <br/>
+      <br/>
+      {{ form.profile_photo }}
+      {% if form.profile_photo.errors %}
+          <div class="error">{{ form.profile_photo.errors }}</div>
+      {% endif %}
+    </div>
+  </div>
+  
+  {{ form.first_name }}
+  <br>
+
+  {{ form.last_name }}
+  <br>
+
+  {{ form.email }}
+  <br>
+
+  {{ form.bio }}
+  <br><br>
+
+  <button class="btn btn-lg btn-outline-success btn-block" type="submit">
+    Kaydet
+  </button>
+  <p class="mt-5 mb-3 text-muted text-center">© 2023</p>
+</form>
+{% endblock %}
