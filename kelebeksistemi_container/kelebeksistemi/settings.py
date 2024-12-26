@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 POSTGRES = json.loads(os.getenv('POSTGRES'))
+MAIL = json.loads(os.getenv("MAIL"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -165,9 +166,9 @@ CACHES = {
     }
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_HOST_USER = os.getenv("MAIL")["ADDRESS"]
-EMAIL_HOST_PASSWORD = os.getenv("MAIL")["PASSWORD"]
+EMAIL_BACKEND = MAIL["BACKEND"]
+EMAIL_HOST = MAIL["HOST"]
+EMAIL_PORT = MAIL["PORT"]
+EMAIL_USE_SSL = MAIL["USE_SSL"]
+EMAIL_HOST_USER = MAIL["ADDRESS"]
+EMAIL_HOST_PASSWORD = MAIL["PASSWORD"]
